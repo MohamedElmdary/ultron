@@ -10,6 +10,10 @@ class Logger {
     buffer(msg);
     return this;
   }
+
+  static create(): Logger {
+    return new Logger();
+  }
 }
 
 export {Logger};

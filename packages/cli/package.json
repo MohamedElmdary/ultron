@@ -1,0 +1,41 @@
+{
+  "name": "@ultron/cli",
+  "version": "1.0.0",
+  "description": "Package to create cli",
+  "keywords": [
+    "ultron",
+    "@ultron",
+    "@ultron/cli",
+    "cli",
+    "create-cli"
+  ],
+  "author": "MohamedElmdary <engm5081@gmail.com>",
+  "homepage": "https://github.com/MohamedElmdary/ultron",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedElmdary/ultron.git"
+  },
+  "scripts": {
+    "test": "jest --config ../../jest.config.js",
+    "build": "webpack --config webpack.config.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/MohamedElmdary/ultron/issues"
+  },
+  "dependencies": {
+    "@ultron/logger": "^1.0.0"
+  }
+}

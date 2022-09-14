@@ -7,7 +7,7 @@ export default {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
-    library: "logger",
+    library: "cli",
   },
   module: {
     rules: [
