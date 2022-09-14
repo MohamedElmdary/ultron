@@ -1,0 +1,45 @@
+{
+  "name": "@ultron/logger",
+  "version": "1.0.0",
+  "description": "logger supports color and emojis",
+  "keywords": [
+    "ultron",
+    "logger",
+    "@ultron",
+    "@ultron/logger",
+    "color-logger"
+  ],
+  "author": "MohamedElmdary <engm5081@gmail.com>",
+  "homepage": "https://github.com/MohamedElmdary/ultron",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedElmdary/ultron.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "webpack --config webpack.config.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/MohamedElmdary/ultron/issues"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

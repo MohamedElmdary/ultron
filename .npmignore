@@ -2,3 +2,5 @@
 **/.eslintignore
 **/.github/README.md
 coverage
+**/lib
+**/tests

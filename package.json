@@ -5,7 +5,11 @@
   "repository": "git@github.com:MohamedElmdary/ultron.git",
   "author": "MohamedElmdary <engm5081@gmail.com>",
   "license": "MIT",
-  "private": false,
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test"
+  },
+  "private": true,
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "eslint": "^8.0.1",
