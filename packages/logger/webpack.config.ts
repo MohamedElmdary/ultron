@@ -16,4 +16,7 @@ export default {
       },
     ],
   },
+  resolve: {
+    extensions: [".ts"],
+  },
 } as Configuration;
