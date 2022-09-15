@@ -1,6 +1,6 @@
 import {ICommand} from "./command";
 
-interface IFlag extends ICommand {
+interface IFlag extends Omit<ICommand, "flags"> {
   alias: string;
 }
 

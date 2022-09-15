@@ -37,5 +37,8 @@
   },
   "dependencies": {
     "@ultron/logger": "^1.0.0"
+  },
+  "devDependencies": {
+    "utility-types": "^3.10.0"
   }
 }
