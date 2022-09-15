@@ -1,7 +1,7 @@
 import {Logger, LoggerMessage} from "@ultron/logger";
 import {Optional} from "utility-types";
 
-import {CliOptions, IArg} from "../types";
+import {CliOptions} from "../types";
 import {Command} from "./command";
 import {Flag} from "./flag";
 

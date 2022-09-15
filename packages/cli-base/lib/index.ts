@@ -28,3 +28,5 @@ Cli
     flags: [help, help, help],
   })
   .init();
+
+console.log(process.argv);
