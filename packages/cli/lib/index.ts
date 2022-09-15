@@ -19,6 +19,6 @@ const help = Flag.create({
   },
 });
 
-// const cli = Cli.create("ng").addCommand(ver).addFlag(help);
+const cli = Cli.create("ng").addCommand(ver).addFlag(help);
 
-// cli.print();
+cli.print();

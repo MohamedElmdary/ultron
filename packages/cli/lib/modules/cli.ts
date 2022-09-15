@@ -24,7 +24,6 @@ export class Cli {
       const args = cmd.args.map((arg) => {
         return LoggerMessage.create(` [${arg.name}]`);
       });
-
       return LoggerMessage.create([
         LoggerMessage.create(this.name).white(),
         LoggerMessage.create(" " + cmd.name).cyan(),
@@ -32,7 +31,6 @@ export class Cli {
         LoggerMessage.create(cmd.description).white(),
       ]);
     });
-
     this.logger.log([
       LoggerMessage.create(this.name).red().newLine().newLine(),
       LoggerMessage.create("Commands:").blue().newLine(),

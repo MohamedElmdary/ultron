@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "lerna run build",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "example": "parcel ./example/index.html"
   },
   "private": true,
   "devDependencies": {
@@ -21,6 +22,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "jest": "^29.0.3",
     "lerna": "^5.5.1",
+    "parcel": "^2.7.0",
     "ts-jest": "^29.0.1",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.1",

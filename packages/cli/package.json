@@ -30,7 +30,7 @@
   },
   "scripts": {
     "test": "jest --config ../../jest.config.js",
-    "build": "webpack --config webpack.config.ts"
+    "build": "rm -rf ./dist && tsc --project tsconfig.json"
   },
   "bugs": {
     "url": "https://github.com/MohamedElmdary/ultron/issues"
