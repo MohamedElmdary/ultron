@@ -1,0 +1,44 @@
+{
+  "name": "@ultron/cli",
+  "version": "1.0.0",
+  "description": "ultron cli",
+  "keywords": [
+    "ultron",
+    "@ultron",
+    "@ultron-cli",
+    "cli"
+  ],
+  "author": "MohamedElmdary <engm5081@gmail.com>",
+  "homepage": "https://github.com/MohamedElmdary/ultron",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "ultron": "./dist/bin/index.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedElmdary/ultron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MohamedElmdary/ultron/issues"
+  },
+  "scripts": {
+    "test": "jest --config ../../jest.config.js",
+    "build": "rm -rf ./dist && tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "@ultron/cli-base": "^1.0.0",
+    "@ultron/logger": "^1.0.0"
+  }
+}

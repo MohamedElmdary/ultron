@@ -1,10 +1,8 @@
-export * from "./modules";
-export * from "./types";
-
-console.log(process.argv);
+#! /usr/bin/env node
+console.log("here?");
 
 // import {LoggerMessage} from "@ultron/logger";
-// import {Flag, Command, Cli} from "./modules";
+// import {Flag, Command, Cli} from "@ultron/cli-base";
 
 // const ver = {
 //   name: "version",
@@ -33,5 +31,3 @@ console.log(process.argv);
 //     flags: [help, help, help],
 //   })
 //   .init();
-
-// console.log(process.argv);
