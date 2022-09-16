@@ -19,6 +19,7 @@ const HELP_FLAG = new Flag({
   description: "List all available commands, flags for this command.",
   func({cli, command}) {
     if (command) return cli.formatCommand(command);
+    return cli.format();
   },
 });
 
@@ -33,7 +34,7 @@ export class Cli {
   private constructor(options: CliOptions) {
     this.name = options.name;
     this.commands = options.commands.map((cmd) => {
-      cmd.flags.unshift(HELP_FLAG);
+      if (this.enableHelp) cmd.flags.unshift(HELP_FLAG);
       return cmd;
     });
     this.flags = options.flags;
@@ -49,8 +50,80 @@ export class Cli {
     return this.help === true;
   }
 
-  init() {
-    this.logger.log([this.format()]);
+  async init(): Promise<void> {
+    const args = process.argv.slice(2);
+
+    if (!args.length) {
+      this.logger.log([
+        LoggerMessage.create("No arguments were passed. check --help,-h for more info.")
+          .red()
+          .newLine(),
+      ]);
+      return;
+    }
+
+    let command = args[0];
+
+    if (command.startsWith("-") || command.startsWith("--")) {
+      command = command.replace(/-/g, "");
+      const flag = this.flags.find((f) => f.alias === command || f.name === command);
+
+      const maybeHelp = args[args.length - 1];
+      if (maybeHelp === "-h" || maybeHelp === "--help") {
+        this.logger.log([await HELP_FLAG.func({cli: this, args: []})]);
+        return;
+      }
+
+      if (!flag) {
+        this.logger.log([
+          LoggerMessage.create(`Unknown flag ${command}, check --help,-h for more info.`)
+            .red()
+            .newLine(),
+        ]);
+        return;
+      }
+
+      // if (command.length - 1 > flag.args.length) {
+      //   return this.logger.log([
+      //     LoggerMessage.create(
+      //       `${command} accepts at most ${flag.args.length}, check --help,-h for more info.`
+      //     )
+      //       .red()
+      //       .newLine(),
+      //   ]);
+      // }
+
+      this.logger.log([await flag.func({cli: this, args: args.slice(1)})]);
+    }
+
+    const cmd = this.commands.find((c) => c.name === command);
+
+    if (!cmd) {
+      this.logger.log([
+        LoggerMessage.create(`Unknown command ${command}, check --help,-h for more info.`)
+          .red()
+          .newLine(),
+      ]);
+      return;
+    }
+
+    const maybeHelp = args[args.length - 1];
+    if (maybeHelp === "-h" || maybeHelp === "--help") {
+      this.logger.log([await HELP_FLAG.func({cli: this, command: cmd, args: []})]);
+      return;
+    }
+
+    // if (command.length - 1 > cmd.args.length) {
+    //   return this.logger.log([
+    //     LoggerMessage.create(
+    //       `${command} accepts at most ${cmd.args.length}, check --help,-h for more info.`
+    //     )
+    //       .red()
+    //       .newLine(),
+    //   ]);
+    // }
+
+    this.logger.log([await cmd.func({cli: this, args: args.slice(1)})]);
   }
 
   addCommands(...cmds: Command[]): Cli {

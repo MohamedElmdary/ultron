@@ -3,7 +3,7 @@ import {LoggerMessage} from "@ultron/logger";
 import {Cli, Command, Flag} from "../modules";
 
 interface ICommandFuncOptions {
-  args: IArg[];
+  args: string[];
   cli: Cli;
   command?: Command;
 }
@@ -13,7 +13,7 @@ interface ICommand {
   description: string;
   args?: IArg[];
   flags?: Flag[];
-  func: (options: ICommandFuncOptions) => LoggerMessage | void;
+  func: (options: ICommandFuncOptions) => LoggerMessage | Promise<LoggerMessage>;
 }
 
 export {ICommand};
